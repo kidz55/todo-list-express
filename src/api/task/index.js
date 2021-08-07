@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { middleware as query } from 'querymen'
+import { middleware as query, Schema } from 'querymen'
 import { middleware as body } from 'bodymen'
 import { create, index, show, update, destroy } from './controller'
 import { schema } from './model'
@@ -34,8 +34,11 @@ router.post('/',
  * @apiSuccess {Object[]} tasks List of tasks.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  */
+
 router.get('/',
-  query(),
+  query(new Schema({
+    sort: 'createdAt'
+  })),
   index)
 
 /**
