@@ -35,7 +35,7 @@ You can customize the `src` and `api` directories.
 ```
 src/
 ├─ api/
-│  ├─ user/
+│  ├─ task/
 │  │  ├─ controller.js
 │  │  ├─ index.js
 │  │  ├─ index.test.js
@@ -44,11 +44,7 @@ src/
 │  └─ index.js
 ├─ services/
 │  ├─ express/
-│  ├─ facebook/
 │  ├─ mongoose/
-│  ├─ passport/
-│  ├─ sendgrid/
-│  └─ your-service/
 ├─ app.js
 ├─ config.js
 └─ index.js
