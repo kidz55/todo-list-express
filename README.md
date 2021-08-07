@@ -54,17 +54,17 @@ src/
 
 Here is where the API endpoints are defined. Each API has its own folder.
 
-#### src/api/some-endpoint/model.js
+#### src/api/task/model.js
 
 It defines the Mongoose schema and model for the API endpoint. Any changes to the data model should be done here.
 
-#### src/api/some-endpoint/controller.js
+#### src/api/task/controller.js
 
 This is the API controller file. It defines the main router middlewares which use the API model.
 
-#### src/api/some-endpoint/index.js
+#### src/api/task/index.js
 
-This is the entry file of the API. It defines the routes using, along other middlewares (like session, validation etc.), the middlewares defined in the `some-endpoint.controller.js` file.
+This is the entry file of the API. It defines the routes using, along other middlewares (like session, validation etc.), the middlewares defined in the `task/controller.js` file.
 
 ### services/
 
