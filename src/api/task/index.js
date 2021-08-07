@@ -37,7 +37,12 @@ router.post('/',
 
 router.get('/',
   query(new Schema({
-    sort: 'createdAt'
+    sort: 'createdAt',
+    filter: {
+      type: String,
+      paths: ['status'],
+      operator: '$ne'
+    }
   })),
   index)
 
