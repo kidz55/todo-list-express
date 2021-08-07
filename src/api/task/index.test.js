@@ -8,7 +8,11 @@ const app = () => express(apiRoot, routes)
 let task
 
 beforeEach(async () => {
-  task = await Task.create({})
+  task = await Task.create({
+    title: 'my task test',
+    description: 'desc',
+    status: 'incomplete'
+  })
 })
 
 test('POST /tasks 201', async () => {
@@ -30,6 +34,7 @@ test('GET /tasks 200', async () => {
 })
 
 test('GET /tasks/:id 200', async () => {
+  console.log(`${apiRoot}/${task.id}`)
   const { status, body } = await request(app())
     .get(`${apiRoot}/${task.id}`)
   expect(status).toBe(200)

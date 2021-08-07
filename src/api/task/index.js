@@ -62,8 +62,8 @@ router.get('/:id',
  * @apiError 404 Task not found.
  */
 router.put('/:id',
-  buildCheckFunction(['query'])('id').isMongoId(),
   validateTask,
+  buildCheckFunction(['query'])('id').isMongoId(),
   body({ title, description, status }),
   update)
 

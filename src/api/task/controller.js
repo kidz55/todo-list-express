@@ -14,14 +14,6 @@ export const index = ({ querymen: { query, select, cursor } }, res, next) =>
     .catch(next)
 
 export const show = ({ params }, res, next) => {
-  if (!params.id.match(/^[0-9a-fA-F]{24}$/)) {
-    res.status(400)
-    res.send({
-      status: 'error',
-      message: 'invalid ID'
-    }).end()
-    return
-  }
   return Task.findById(params.id)
     .then(notFound(res))
     .then((task) => task ? task.view() : null)
@@ -30,14 +22,6 @@ export const show = ({ params }, res, next) => {
 }
 
 export const update = ({ bodymen: { body }, params }, res, next) => {
-  // if (!params.id.match(/^[0-9a-fA-F]{24}$/)) {
-  //   res.status(400)
-  //   res.send({
-  //     status: 'error',
-  //     message: 'invalid ID'
-  //   }).end()
-  //   return
-  // }
   return Task.findById(params.id)
     .then(notFound(res))
     .then((task) => task ? Object.assign(task, body).save() : null)
@@ -47,14 +31,6 @@ export const update = ({ bodymen: { body }, params }, res, next) => {
 }
 
 export const destroy = ({ params }, res, next) => {
-  if (!params.id.match(/^[0-9a-fA-F]{24}$/)) {
-    res.status(400)
-    res.send({
-      status: 'error',
-      message: 'invalid ID'
-    }).end()
-    return
-  }
   return Task.findById(params.id)
     .then(notFound(res))
     .then((task) => task ? task.remove() : null)
