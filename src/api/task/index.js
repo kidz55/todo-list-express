@@ -8,7 +8,7 @@ import { buildCheckFunction } from 'express-validator'
 export Task, { schema } from './model'
 
 const router = new Router()
-const { title, description, status } = schema.tree
+const { title, description, status, deadLine } = schema.tree
 
 /**
  * @api {post} /tasks Create task
@@ -23,7 +23,7 @@ const { title, description, status } = schema.tree
  */
 router.post('/',
   validateTask,
-  body({ title, description, status }),
+  body({ title, description, status, deadLine }),
   create)
 
 /**
@@ -67,7 +67,7 @@ router.get('/:id',
 router.put('/:id',
   validateTask,
   buildCheckFunction(['query'])('id').isMongoId(),
-  body({ title, description, status }),
+  body({ title, description, status, deadLine }),
   update)
 
 /**

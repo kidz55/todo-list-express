@@ -30,8 +30,6 @@ Express server listening on http://0.0.0.0:9000, in development mode
 
 ### Overview
 
-You can customize the `src` and `api` directories.
-
 ```
 src/
 ├─ api/

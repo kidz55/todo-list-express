@@ -9,6 +9,9 @@ const taskSchema = new Schema({
   },
   status: {
     type: String
+  },
+  deadLine: {
+    type: String
   }
 }, {
   timestamps: true,
@@ -26,6 +29,7 @@ taskSchema.methods = {
       title: this.title,
       description: this.description,
       status: this.status,
+      deadLine: this.deadLine,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
