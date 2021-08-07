@@ -3,6 +3,8 @@ import { middleware as query } from 'querymen'
 import { middleware as body } from 'bodymen'
 import { create, index, show, update, destroy } from './controller'
 import { schema } from './model'
+import { validateTask } from './validators'
+import { buildCheckFunction } from 'express-validator'
 export Task, { schema } from './model'
 
 const router = new Router()
@@ -20,6 +22,7 @@ const { title, description, status } = schema.tree
  * @apiError 404 Task not found.
  */
 router.post('/',
+  validateTask,
   body({ title, description, status }),
   create)
 
@@ -44,6 +47,7 @@ router.get('/',
  * @apiError 404 Task not found.
  */
 router.get('/:id',
+  buildCheckFunction(['query'])('id').isMongoId(),
   show)
 
 /**
@@ -58,6 +62,8 @@ router.get('/:id',
  * @apiError 404 Task not found.
  */
 router.put('/:id',
+  buildCheckFunction(['query'])('id').isMongoId(),
+  validateTask,
   body({ title, description, status }),
   update)
 
@@ -69,6 +75,7 @@ router.put('/:id',
  * @apiError 404 Task not found.
  */
 router.delete('/:id',
+  buildCheckFunction(['query'])('id').isMongoId(),
   destroy)
 
 export default router

@@ -19,7 +19,7 @@ const taskSchema = new Schema({
 })
 
 taskSchema.methods = {
-  view (full) {
+  view () {
     const view = {
       // simple view
       id: this.id,
@@ -30,10 +30,7 @@ taskSchema.methods = {
       updatedAt: this.updatedAt
     }
 
-    return full ? {
-      ...view
-      // add properties for a full view
-    } : view
+    return view
   }
 }
 
