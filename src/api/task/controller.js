@@ -8,8 +8,13 @@ export const create = ({ bodymen: { body } }, res, next) =>
     .catch(next)
 
 export const index = ({ querymen: { query, select, cursor } }, res, next) =>
-  Task.find(query, select, cursor)
-    .then((tasks) => tasks.map((task) => task.view()))
+  Task.count(query)
+    .then(count => Task.find(query, select, cursor)
+      .then((Tasks) => ({
+        count,
+        rows: Tasks.map((Task) => Task.view())
+      }))
+    )
     .then(success(res))
     .catch(next)
 

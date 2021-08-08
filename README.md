@@ -1,5 +1,13 @@
 See the API's [documentation](DOCS.md).
 
+## Personals note
+
+I used Express, mongoose and generator-rest for to create this todo backend.
+
+We have a classic CRUD for the Task collection.
+
+The list endpoint is paginated to avoid sending too much data to the client.
+
 ## Commands
 
 After you clone your project, these commands are available in `package.json`.
@@ -63,7 +71,3 @@ This is the API controller file. It defines the main router middlewares which us
 #### src/api/task/index.js
 
 This is the entry file of the API. It defines the routes using, along other middlewares (like session, validation etc.), the middlewares defined in the `task/controller.js` file.
-
-### services/
-
-Here you can put `helpers`, `libraries` and other types of modules which you want to use in your APIs.
