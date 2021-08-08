@@ -38,6 +38,7 @@ router.post('/',
 router.get('/',
   query(new Schema({
     sort: 'createdAt',
+    limit: 10,
     filter: {
       type: String,
       paths: ['status'],
