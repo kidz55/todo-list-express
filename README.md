@@ -4,6 +4,8 @@ See the API's [documentation](DOCS.md).
 
 I used Express, mongoose and generator-rest for to create this todo backend.
 
+The API is requestable at https://kidz-todo-list-backend.herokuapp.com
+
 We have a classic CRUD for the Task collection.
 
 The list endpoint is paginated to avoid sending too much data to the client.
